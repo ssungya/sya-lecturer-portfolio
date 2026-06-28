@@ -212,14 +212,10 @@ export default function Home() {
 
       {/* Interactive Centered Visual Hero Banner */}
       <section className={styles.bannerSection}>
-        {/* Geometric Background Shapes with Interactive Parallax and Glow Blobs */}
+        {/* Dynamic Background Glow Blobs for Navy setting */}
         <div className={styles.bannerBgDecorations}>
           <div className={styles.pulseGlowBlob1} />
           <div className={styles.pulseGlowBlob2} />
-          <div className={styles.decorBlockLeft} />
-          <div className={styles.decorBlockRight} />
-          <div className={styles.decorDots} />
-          <div className={styles.decorDotsLeft} />
         </div>
 
         <div className={styles.bannerContentCentered}>
