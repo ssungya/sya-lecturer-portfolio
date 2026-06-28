@@ -200,7 +200,7 @@ export default function Home() {
       {/* Header */}
       <header className={styles.header}>
         <div className={styles.logo}>
-          성영아<span className={styles.logoDot} />
+          한국인력경영개발원<span className={styles.logoDot} />
         </div>
         <div style={{ display: "flex", gap: "1rem" }}>
           <a href="#profile" className={styles.headerLink}>Profile</a>
@@ -210,26 +210,32 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Visual Hero Banner */}
+      {/* Interactive Centered Visual Hero Banner */}
       <section className={styles.bannerSection}>
-        {/* Geometric Background Shapes */}
+        {/* Geometric Background Shapes with Interactive Parallax */}
         <div className={styles.bannerBgDecorations}>
-          <div className={styles.decorBlock1} />
-          <div className={styles.decorBlock2} />
+          <div className={styles.decorBlockLeft} />
+          <div className={styles.decorBlockRight} />
           <div className={styles.decorDots} />
+          <div className={styles.decorDotsLeft} />
         </div>
 
-        <div className={styles.bannerContent}>
-          <div className={styles.bannerLeft}>
-            <span className={styles.bannerSubtitle}>한국인력경영개발원</span>
-            <h1 className={styles.bannerTitle}>
-              사람과 조직의<br />성장을 설계합니다
-            </h1>
-            <p className={styles.bannerDesc}>
-              기업과 기관에 필요한 교육을 기획 · 운영하는 전문 교육 파트너
-            </p>
-          </div>
-          <div className={styles.bannerRight} />
+        <div className={styles.bannerContentCentered}>
+          <span className={styles.bannerSubtitleCentered}>한국인력경영개발원</span>
+          <h1 className={styles.bannerTitleCentered}>
+            사람과 조직의 성장을 설계합니다
+          </h1>
+          <p className={styles.bannerDescCentered}>
+            기업과 기관에 필요한 교육을 기획 · 운영하는 전문 교육 파트너
+          </p>
+
+          <a href="#contact" className={styles.bannerCTA}>
+            교육 문의하기
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
         </div>
       </section>
 
