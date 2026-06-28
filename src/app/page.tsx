@@ -14,6 +14,10 @@ export default function Home() {
   const [showToast, setShowToast] = useState(false);
   const [activeTab, setActiveTab] = useState<"all" | "ai" | "communication" | "leadership" | "cs">("all");
   
+  // Mouse tracking state for Aurora Trail effect
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
   // Inquiry Form State
   const [formData, setFormData] = useState({
     clientName: "",
@@ -27,6 +31,14 @@ export default function Home() {
 
   const email = "dynamic_sya@naver.com";
   const phone = "010-4056-3636";
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    });
+  };
 
   const handleCopyEmail = async () => {
     try {
@@ -210,12 +222,26 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Interactive Centered Visual Hero Banner */}
-      <section className={styles.bannerSection}>
-        {/* Dynamic Background Glow Blobs for Navy setting */}
+      {/* Interactive Centered Visual Hero Banner with Mouse Tracking Events */}
+      <section 
+        className={styles.bannerSection}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Dynamic Background Fog & Mouse Glow Aurora Trail */}
         <div className={styles.bannerBgDecorations}>
-          <div className={styles.pulseGlowBlob1} />
-          <div className={styles.pulseGlowBlob2} />
+          <div className={styles.fogLayer1} />
+          <div className={styles.fogLayer2} />
+          {isHovered && (
+            <div 
+              className={styles.mouseGlow} 
+              style={{ 
+                left: `${mousePos.x}px`, 
+                top: `${mousePos.y}px` 
+              }} 
+            />
+          )}
         </div>
 
         <div className={styles.bannerContentCentered}>
