@@ -240,9 +240,7 @@ export default function Home() {
             {/* Left Block: Avatar Card & Personal details */}
             <div className={styles.profileLeft}>
               <div className={styles.avatarWrapper}>
-                <svg className={styles.avatarPlaceholder} fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                </svg>
+                <img src="/profile.png" alt="성영아 강사 프로필" className={styles.avatarImage} />
               </div>
 
               <div className={styles.profileCard}>
@@ -335,6 +333,10 @@ export default function Home() {
               <div>
                 <h3 className={styles.rightSubtitle}>자격증 및 전문 자격</h3>
                 <div className={styles.badgeGrid}>
+                  <div className={styles.licenseBadge}>
+                    <span className={styles.licenseTitle}>구글공인전문교육가</span>
+                    <span className={styles.licenseYear}>2026년 취득</span>
+                  </div>
                   <div className={styles.licenseBadge}>
                     <span className={styles.licenseTitle}>인공지능(AI)활용능력 1급</span>
                     <span className={styles.licenseYear}>2025년 취득</span>
