@@ -212,8 +212,10 @@ export default function Home() {
 
       {/* Interactive Centered Visual Hero Banner */}
       <section className={styles.bannerSection}>
-        {/* Geometric Background Shapes with Interactive Parallax */}
+        {/* Geometric Background Shapes with Interactive Parallax and Glow Blobs */}
         <div className={styles.bannerBgDecorations}>
+          <div className={styles.pulseGlowBlob1} />
+          <div className={styles.pulseGlowBlob2} />
           <div className={styles.decorBlockLeft} />
           <div className={styles.decorBlockRight} />
           <div className={styles.decorDots} />
@@ -578,7 +580,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className={styles.emailArea} style={{ paddingRight: "1.5rem" }}>
+                <div className={styles.emailArea} style={{ paddingRight: "0" }}>
                   <span className={styles.emailText}>☎ {phone}</span>
                   <a href={`tel:${phone}`} className={styles.mailButton} style={{ background: "var(--accent-light)", color: "#ffffff", border: "none" }}>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
