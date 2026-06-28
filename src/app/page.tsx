@@ -62,7 +62,7 @@ export default function Home() {
     }));
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Simple Validation
@@ -73,11 +73,35 @@ export default function Home() {
 
     setIsSubmitting(true);
 
-    // Simulate sending inquiry data to a backend server
-    setTimeout(() => {
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/dynamic_sya@naver.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          "신청자/기관명": formData.clientName,
+          "연락처": formData.phone,
+          "이메일": formData.email,
+          "문의 분야": formData.subject,
+          "상세 문의 내용": formData.message,
+          "_subject": `[한국인력경영개발원] 새로운 강의 문의가 접수되었습니다 (${formData.clientName}님)`,
+          "_template": "table" // Send beautiful table in the email
+        })
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        throw new Error("메일 전송에 실패했습니다.");
+      }
+    } catch (err) {
+      console.error("이메일 전송 오류:", err);
+      alert("문의 전송 도중 에러가 발생했습니다. 대표 메일(dynamic_sya@naver.com)로 직접 문의 남겨주시면 감사하겠습니다.");
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 1200);
+    }
   };
 
   const handleResetForm = () => {
