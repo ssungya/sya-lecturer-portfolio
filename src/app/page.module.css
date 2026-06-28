@@ -14,7 +14,7 @@
   left: -10%;
   width: 50vw;
   height: 50vw;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.07) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
   z-index: 1;
   pointer-events: none;
   animation: floatGlow 15s infinite alternate ease-in-out;
@@ -26,7 +26,7 @@
   right: -10%;
   width: 60vw;
   height: 60vw;
-  background: radial-gradient(circle, rgba(30, 64, 175, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(30, 64, 175, 0.03) 0%, transparent 70%);
   z-index: 1;
   pointer-events: none;
   animation: floatGlow 20s infinite alternate-reverse ease-in-out;
@@ -91,56 +91,136 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem 6rem;
+  padding: 6rem 1.5rem;
   z-index: 10;
   display: flex;
   flex-direction: column;
   gap: 8rem;
 }
 
-/* Hero Section */
-.hero {
-  padding-top: 4rem;
-  padding-bottom: 2rem;
-  max-width: 900px;
+/* Visual Hero Banner Section */
+.bannerSection {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  z-index: 5;
   animation: fadeInUp 0.8s ease-out;
 }
 
-.badge {
-  display: inline-flex;
+.bannerContent {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 1rem;
-  background: rgba(37, 99, 235, 0.08);
-  border: 1px solid rgba(37, 99, 235, 0.15);
-  border-radius: 30px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--accent-light);
-  margin-bottom: 1.5rem;
+  height: 100%;
+  position: relative;
+  z-index: 10;
 }
 
-.heroTitle {
+.bannerLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.bannerSubtitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.bannerSubtitle::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 45px;
+  height: 3px;
+  background-color: var(--accent-emerald);
+}
+
+.bannerTitle {
   font-size: 3.5rem;
   font-weight: 800;
+  color: var(--text-primary);
   line-height: 1.25;
   letter-spacing: -1.5px;
-  margin-bottom: 1.5rem;
-  color: var(--text-primary);
+  margin-bottom: 1.75rem;
+  word-break: keep-all;
 }
 
-.highlight {
-  background: linear-gradient(135deg, var(--accent-emerald) 0%, var(--accent-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.heroDesc {
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 1.7;
+.bannerDesc {
+  font-size: 1.15rem;
+  font-weight: 600;
   color: var(--text-secondary);
-  max-width: 780px;
+  border-top: 1px solid rgba(15, 23, 42, 0.12);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+  padding: 0.6rem 0;
+  word-break: keep-all;
+  width: 100%;
+  max-width: 620px;
+}
+
+.bannerRight {
+  height: 100%;
+  position: relative;
+}
+
+/* Geometric Background shapes mimicking the 시안 */
+.bannerBgDecorations {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.decorBlock1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 33%, #f1f5f9 33%, #e2e8f0 36%, var(--accent-emerald) 36%, #0f172a 100%);
+  clip-path: polygon(22% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.decorBlock2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 40%, var(--accent-mint) 40%, var(--accent-light) 45%, transparent 45%);
+}
+
+.decorDots {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  width: 120px;
+  height: 80px;
+  background-image: radial-gradient(rgba(15, 23, 42, 0.15) 2px, transparent 2.5px);
+  background-size: 12px 12px;
+  opacity: 0.55;
+  z-index: 2;
 }
 
 /* Sections */
@@ -210,6 +290,11 @@
   transition: var(--transition-smooth);
 }
 
+.avatarWrapper:hover .avatarPlaceholder {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
 .avatarImage {
   width: 100%;
   height: 100%;
@@ -219,11 +304,6 @@
 
 .avatarWrapper:hover .avatarImage {
   transform: scale(1.03);
-}
-
-.avatarWrapper:hover .avatarPlaceholder {
-  opacity: 0.8;
-  transform: scale(1.05);
 }
 
 .profileCard {
@@ -875,8 +955,17 @@
 
 /* Responsiveness */
 @media (max-width: 968px) {
-  .heroTitle {
-    font-size: 2.75rem;
+  .bannerSection {
+    height: auto;
+    padding: 4rem 0;
+  }
+  .bannerContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .bannerBgDecorations {
+    width: 100%;
+    opacity: 0.2;
   }
   .profileGrid {
     grid-template-columns: 1fr;
@@ -907,6 +996,9 @@
 }
 
 @media (max-width: 768px) {
+  .bannerTitle {
+    font-size: 2.5rem;
+  }
   .grid {
     grid-template-columns: 1fr;
   }
@@ -921,11 +1013,11 @@
 }
 
 @media (max-width: 640px) {
-  .heroTitle {
+  .bannerTitle {
     font-size: 2.25rem;
   }
-  .heroDesc {
-    font-size: 1.1rem;
+  .bannerDesc {
+    font-size: 1rem;
   }
   .sectionTitle {
     font-size: 1.75rem;

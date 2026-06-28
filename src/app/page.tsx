@@ -210,24 +210,31 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Visual Hero Banner */}
+      <section className={styles.bannerSection}>
+        {/* Geometric Background Shapes */}
+        <div className={styles.bannerBgDecorations}>
+          <div className={styles.decorBlock1} />
+          <div className={styles.decorBlock2} />
+          <div className={styles.decorDots} />
+        </div>
+
+        <div className={styles.bannerContent}>
+          <div className={styles.bannerLeft}>
+            <span className={styles.bannerSubtitle}>한국인력경영개발원</span>
+            <h1 className={styles.bannerTitle}>
+              사람과 조직의<br />성장을 설계합니다
+            </h1>
+            <p className={styles.bannerDesc}>
+              기업과 기관에 필요한 교육을 기획 · 운영하는 전문 교육 파트너
+            </p>
+          </div>
+          <div className={styles.bannerRight} />
+        </div>
+      </section>
+
       {/* Main Content */}
       <main className={styles.main}>
-        
-        {/* Hero Section */}
-        <section className={styles.hero}>
-          <div className={styles.badge}>
-            <span>대표 강의 경력 13년</span>
-          </div>
-          <h1 className={styles.heroTitle}>
-            즐겁고 유익한 교육으로<br />
-            조직과 구성원의 <span className={styles.highlight}>성장 가치</span>를 실현합니다.
-          </h1>
-          <p className={styles.heroDesc}>
-            안녕하세요. <strong>한국인력경영개발원 대표 성영아</strong>입니다. 
-            단순 지식 전달이 아닌 즐거움 속에서 배움을 터득하고, 즉각적인 실무 효율화와 
-            건강한 소통 문화를 설계하는 파트너로서 전국 공공기관 및 대기업 강의를 수행하고 있습니다.
-          </p>
-        </section>
 
         {/* Profile Card & Resume (프로필 및 학력/경력) */}
         <section className={styles.section} id="profile">
@@ -255,19 +262,6 @@ export default function Home() {
                       • 한국인력경영개발원 대표<br />
                       • 소상공인연합회 디지털공인강사
                     </p>
-                  </div>
-                </div>
-
-                <div className={styles.profileItem}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                    <line x1="16" y1="2" x2="16" y2="6" />
-                    <line x1="8" y1="2" x2="8" y2="6" />
-                    <line x1="3" y1="10" x2="21" y2="10" />
-                  </svg>
-                  <div>
-                    <span className={styles.profileLabel}>생년월일</span>
-                    <p className={styles.profileValue}>1989년 04월 11일</p>
                   </div>
                 </div>
 
